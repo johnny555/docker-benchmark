@@ -13,11 +13,8 @@ Build docker image:
 
 `docker build -t sysbench-test .`
 
-Make Executable: 
-`chmod +x docker_benchmark.sh.`
-
 Run: 
 
-`./docker_benchmark.sh`
+`bash docker_benchmark.sh`
 
 It will take several minutes to complete all tests.
