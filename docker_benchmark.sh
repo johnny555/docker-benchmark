@@ -39,9 +39,9 @@ parse_sysbench_cpu() {
 
 # Function to parse sysbench Memory output for MiB/sec
 parse_sysbench_mem() {
-  grep 'MiB/sec)' | awk '{print $2}' | tr -d '('
+  # Target the line with "(<value> MiB/sec)" and extract the <value>
+  grep 'MiB/sec)' | grep -Eo '[0-9]+\.[0-9]+ MiB/sec' | awk '{print $1}'
 }
-
 # Function to parse sysbench FileIO output
 # Usage: parse_sysbench_fileio "metric_name"
 # metric_name examples: "read, MiB/s:", "written, MiB/s:", "reads/s:", "writes/s:"
