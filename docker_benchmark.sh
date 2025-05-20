@@ -134,7 +134,7 @@ for test_type in "Host" "Container"; do
     echo "Running $key tests..."
     for (( i=1; i<=$NUM_RUNS; i++ )); do
       echo "  Run $i/$NUM_RUNS..."
-      local result
+      result
       if [[ "$test_type" == "Host" ]]; then
         result=$(sysbench cpu --threads=$threads --cpu-max-prime=$CPU_MAX_PRIME run | parse_sysbench_cpu)
       else
@@ -160,7 +160,7 @@ for test_type in "Host" "Container"; do
     echo "Running $key tests..."
     for (( i=1; i<=$NUM_RUNS; i++ )); do
       echo "  Run $i/$NUM_RUNS..."
-      local result
+      result
       if [[ "$test_type" == "Host" ]]; then
         result=$(sysbench memory --threads=$threads --memory-block-size=$MEM_BLOCK_SIZE --memory-total-size=$MEM_TOTAL_SIZE run | parse_sysbench_mem)
       else
